@@ -1,4 +1,6 @@
-package controller;
+package model;
+
+import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -39,5 +41,6 @@ public class BackupFile {
                         throw new UncheckedIOException(ex);
                     }
                 });
+        
     }  
 }
