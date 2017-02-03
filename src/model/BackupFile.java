@@ -1,7 +1,5 @@
 package model;
 
-import java.awt.Desktop;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -9,8 +7,6 @@ import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.stream.Stream;
 
 public class BackupFile {
@@ -23,7 +19,7 @@ public class BackupFile {
     }
     
     public void copyFiles() throws Exception{
-        Stream<Path> arquivos = Files.list(Paths.get("/home/welyab/Área de Trabalho/test"));
+        Stream<Path> arquivos = Files.list(Paths.get(""));
 
         arquivos.filter(p -> Files.isRegularFile(p))
                 .forEach(p -> {
@@ -40,7 +36,6 @@ public class BackupFile {
                     } catch (IOException ex) {
                         throw new UncheckedIOException(ex);
                     }
-                });
-        
+                }); 
     }  
 }

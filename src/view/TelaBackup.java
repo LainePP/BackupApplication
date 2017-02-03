@@ -10,9 +10,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class TelaBackup extends JFrame{
+    JPanel panel;
 
     public TelaBackup() {
-        JPanel panel = new JPanel(new GridLayout(2,3));
+        panel = new JPanel(new GridLayout(2,3));
         this.setLayout(new GridLayout(1,2));
         
         JLabel labelFrom = new JLabel("Endereço de Origem");
