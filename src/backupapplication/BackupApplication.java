@@ -14,7 +14,7 @@ public class BackupApplication {
             @Override
             public void run() {
                 TelaInicial tela = new TelaInicial();
-                tela.setBounds(20, 20, 1800, 1000);
+                tela.setBounds(20, 20, 700, 700);
                 tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 JScrollPane scroll = new JScrollPane();
                 tela.add(scroll);

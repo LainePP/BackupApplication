@@ -1,8 +1,6 @@
 package view;
 
-import java.awt.Desktop;
 import java.awt.GridLayout;
-import java.io.File;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
