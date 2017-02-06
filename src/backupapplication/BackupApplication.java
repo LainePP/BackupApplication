@@ -3,7 +3,6 @@ package backupapplication;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
-import view.TelaBackup;
 import view.TelaInicial;
 
 

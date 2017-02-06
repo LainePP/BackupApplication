@@ -22,16 +22,6 @@ public class TelaInicial extends JFrame{
     public JPanel panel;
     public JLabel labelInicial;
     public JLabel labelIcon;
-    
-    public GridBagConstraints genConstraint(int x, int y, int w, int h){
-        GridBagConstraints c = new GridBagConstraints();
-        c.gridx = x;
-        c.gridy = y;
-        c.gridwidth = w;
-        c.gridheight = h;
-        c.insets = new Insets(10, 10, 10, 10);
-        return c;
-     }
 
     public TelaInicial(){
         this.setName("Backup de Arquivos");
@@ -68,6 +58,37 @@ public class TelaInicial extends JFrame{
 //        panel.add(buttonBackup,genConstraint(COLUNA,LINHA,QUANTAS CELULAS ELE OCUPA NA LINHA,QUANTAS CELULAS ELE OCUPA NA COLUNA));
         this.add(panel);
         
+        addActionListeners();
+    }
+    
+    public void clickedBtnBackup(){
+        TelaBackup backup = new TelaBackup("Backup");
+        backup.setBounds(20, 20, 800, 800);
+        JScrollPane scroll = new JScrollPane();
+        backup.add(scroll);
+        backup.setVisible(true);
+    }
+    
+    public void clickedBtnRestore(){
+        TelaBackup backup = new TelaBackup("Restore");
+        backup.setBounds(20, 20, 800, 800);
+        JScrollPane scroll = new JScrollPane();
+        backup.add(scroll);
+        backup.setVisible(true);
+    }
+    
+     public GridBagConstraints genConstraint(int x, int y, int w, int h){
+        GridBagConstraints c = new GridBagConstraints();
+        c.gridx = x;
+        c.gridy = y;
+        c.gridwidth = w;
+        c.gridheight = h;
+        c.insets = new Insets(10, 10, 10, 10);
+        return c;
+     }
+     
+     public void addActionListeners(){
+         
         buttonBackup.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -77,30 +98,8 @@ public class TelaInicial extends JFrame{
         buttonRestore.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                
+                clickedBtnRestore();
             }
         });
-    }
-    
-    public void clickedBtnBackup(){
-        TelaBackup backup = new TelaBackup();
-        backup.setBounds(20, 20, 800, 800);
-//        backup.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JScrollPane scroll = new JScrollPane();
-        backup.add(scroll);
-        backup.setVisible(true);
-//        this.removeAll();
-//        this.add(backup.panel);
-    }
-    
-    public void clickedBtnRestore(){
-        TelaBackup backup = new TelaBackup();
-        backup.setBounds(20, 20, 800, 800);
-//        backup.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JScrollPane scroll = new JScrollPane();
-        backup.add(scroll);
-        backup.setVisible(true);
-//        this.removeAll();
-//        this.add(backup.panel);
-    }
+     }
 }
