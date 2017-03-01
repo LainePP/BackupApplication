@@ -135,7 +135,7 @@ public class TelaBackup extends JFrame{
         });
         btnSalvar.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent ae) {                
+            public void actionPerformed(ActionEvent ae) {
                 if(enderecoFrom == "" || (enderecoTo == "" && titulo == "Backup")){
                     JOptionPane.showMessageDialog(null, "Preencha o diretório origem e o diretório destino");
                     return;
@@ -196,14 +196,19 @@ public class TelaBackup extends JFrame{
         f.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY); 
         f.showSaveDialog(null);
         
-        try {
-            enderecoFrom = f.getSelectedFile().toString();
-            txtFrom.setText(enderecoFrom);
-        } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(null, "Escolha um diretório:");
-            f.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY); 
-            f.showSaveDialog(null);
-        }
+//      Just to make sure that the user will choose a path
+        do{
+            try {
+                enderecoFrom = f.getSelectedFile().toString();
+                txtFrom.setText(enderecoFrom);
+            } catch (NullPointerException e) {
+                JOptionPane.showMessageDialog(null, "Escolha um diretório:");
+                f.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY); 
+                f.showSaveDialog(null);
+                enderecoFrom = f.getSelectedFile().toString();
+                txtFrom.setText(enderecoFrom);
+            }
+        }while(f.getSelectedFile() == null);
     }
     
     public void clickedButtonTo(){
@@ -211,14 +216,19 @@ public class TelaBackup extends JFrame{
         f.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY); 
         f.showSaveDialog(null);
         
-        try {
-            enderecoTo = f.getSelectedFile().toString();
-            txtTo.setText(enderecoTo);
-        } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(null, "Escolha um diretório:");
-            f.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY); 
-            f.showSaveDialog(null);
-        }
+//      Just to make sure that the user will choose a path
+        do{
+             try {
+                enderecoTo = f.getSelectedFile().toString();
+                txtTo.setText(enderecoTo);
+            } catch (NullPointerException e) {
+                JOptionPane.showMessageDialog(null, "Escolha um diretório:");
+                f.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY); 
+                f.showSaveDialog(null);
+                enderecoTo = f.getSelectedFile().toString();
+                txtTo.setText(enderecoTo);
+            }
+        }while(f.getSelectedFile() == null);
     }
     
     public void limparBackup(){
